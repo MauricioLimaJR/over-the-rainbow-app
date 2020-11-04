@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import styled, { ThemeProvider } from 'styled-components'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+// Material-UI
+import { withStyles } from '@material-ui/core/styles'
+// Custom Settings
+import * as colors from './constants/colors'
+import theme from './core/theme'
+
+const Styled = {}
+const styles = () => {
+  Styled.Canvas = styled.div`
+    background-color: ${colors.athensGray};
+    font-family: !important ${'CircularStd, Helvetica'};
+    text-align: center;
+  `
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // REACT ROUTER DOM ROOT
+    <ThemeProvider theme={theme}>
+      <Styled.Canvas
+        className="App"
+      >
+        <BrowserRouter>
+          <Header />
+          <BodyContent>
+            <Switch>
+              <Route exact path="/" component={Login} />
+              <Route exact path="/start" component={Dashboard} />
+              <Route path="/" component={NoMatchPage} />
+            </Switch>
+          </BodyContent>
+        </BrowserRouter>
+        <Footer />
+      </Styled.Canvas>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default withStyles(styles)(App)
