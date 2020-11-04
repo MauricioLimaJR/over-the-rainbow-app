@@ -3,14 +3,12 @@ import styled from 'styled-components'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core'
 // Custom Components
-// import About from './pages/about/index'
 import BodyContent from './pages/components/BodyContent'
 import Footer from './pages/components/Footer'
-// import Gameboard from './pages/gameboard/index'
-// import Games from './pages/games/index'
 import Header from './pages/components/Header'
-// import Landing from './pages/landing/index'
-// import RankingTable from './pages/ranking/index'
+// import Dashboard from './pages/dashboard/index'
+import Sign from './pages/sign/index'
+import NoMatchPage from './pages/components/NoMatchPage'
 import Theme from './core/theme'
 // Others
 import * as colors from './constants/colors'
@@ -30,15 +28,12 @@ function App() {
       <ThemeProvider theme={createMuiTheme(Theme)}>
         <BrowserRouter>
           <Header />
-          <BodyContent className="App">oiiiiii
-            {/* <Switch>
-              <Route exact path='/' component={Landing} />
-              <Route exact path='/jogar' component={Gameboard} />
-              <Route exact path='/jogos' component={Games} />
-              <Route exact path='/ranking' component={RankingTable} />
-              <Route exact path='/sobre' component={About} />
-              <Route path='/' component={Landing} />
-            </Switch> */}
+          <BodyContent className="App">
+            <Switch>
+              <Route exact path='/' component={Sign} />
+              {/* <Route exact path='/dashboard' component={Dashboard} /> */}
+              <Route path='/' component={NoMatchPage} />
+            </Switch>
           </BodyContent>
 
           <Footer />

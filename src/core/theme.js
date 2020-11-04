@@ -54,7 +54,7 @@ export default (palette = defaultPalette) => ({
         minWidth: '9.375rem', // 150px
       },
       contained: {
-        minWidth: '9.375rem', // 150px
+        minWidth: '20.375rem', // 150px
         boxShadow: 'none !important',
       },
       text: {

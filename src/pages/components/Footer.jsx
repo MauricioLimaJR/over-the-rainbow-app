@@ -6,7 +6,7 @@ import { Grid, Divider } from '@material-ui/core'
 import * as colors from '../../constants/colors'
 
 const StyledGrid = styled(Grid)`
-  background-color: ${colors.mediumPurple};
+  background-color: ${colors.brinkPink};
   color: ${colors.athensGray};
   height: 6vh;
 `

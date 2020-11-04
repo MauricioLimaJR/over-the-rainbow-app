@@ -35,6 +35,7 @@ export const gigasPurple = '#553BA4' // Darker
 // export const razzmatazzDarkPink = '#D40B69' // Alt
 // Mostrando helper text
 export const rosePink = '#FF0D7F' // Light
+export const brinkPink = '#FE6B8B'
 
 // Green scale
 export const robinEggBlue = '#00E7BA' // Main
@@ -71,3 +72,4 @@ export const parsleyGreen = '#1B5E20'
 export const toryBlue = '#0D47A1'
 export const cinnabarRed = '#E53935'
 export const ecstasyOrange = '#F57F17'
+export const coral = '#FF8E53'

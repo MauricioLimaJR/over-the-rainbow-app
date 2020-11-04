@@ -7,11 +7,11 @@ import { Grid, withStyles } from '@material-ui/core'
 import * as colors from '../../constants/colors'
 
 const HeaderContainer = styled(Grid)`
-  background-color: ${colors.white};
+  background-color: ${colors.brinkPink};
   height: 8vh;
 
   p {
-    color: ${colors.schoolBusYellow};
+    color: ${colors.white};
     font-weight: bold;
     font-size: 2rem;
   }

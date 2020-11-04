@@ -6,7 +6,7 @@ import { Grid } from '@material-ui/core'
 import * as colors from '../../constants/colors'
 
 const Background = styled(Grid)`
-  background-color: ${colors.pomegranateRed};
+  background-color: ${colors.darkerWhite};
   color: ${colors.pentaneryGray};
   height: 86vh;
   width: 100vw;

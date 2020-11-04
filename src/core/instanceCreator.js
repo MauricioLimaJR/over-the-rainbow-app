@@ -1,8 +1,7 @@
 import axios from 'axios'
-import getConfig from 'next/config'
 import * as auth from '../lib/auth'
 
-const { publicRuntimeConfig } = getConfig()
+const publicRuntimeConfig = process.env
 
 const APP_URL =
   publicRuntimeConfig.NODE_ENV === 'development'
