@@ -37,10 +37,10 @@ export const gigasPurple = '#553BA4' // Darker
 export const rosePink = '#FF0D7F' // Light
 
 // Green scale
-// export const robinEggBlue = '#00E7BA' // Main
-// export const caribbeanGreen = '#00BF9A' // Dark
-// export const caribbeanDarkGreen = '#00D9AF' // Alt
-// export const brightTurquoiseGreen = '#00F5C5' // Light
+export const robinEggBlue = '#00E7BA' // Main
+export const caribbeanGreen = '#00BF9A' // Dark
+export const caribbeanDarkGreen = '#00D9AF' // Alt
+export const brightTurquoiseGreen = '#00F5C5' // Light
 
 // Yellow scale
 export const schoolBusYellow = '#FFD800' // Main
@@ -66,8 +66,8 @@ export const pentaneryGray = '#2B2B2B'
 export const hexneryGray = '#BDBDBD'
 
 
-// export const portagePurple = '#AF8AF4'
-// export const parsleyGreen = '#1B5E20'
-// export const toryBlue = '#0D47A1'
-// export const cinnabarRed = '#E53935'
-// export const ecstasyOrange = '#F57F17'
+export const portagePurple = '#AF8AF4'
+export const parsleyGreen = '#1B5E20'
+export const toryBlue = '#0D47A1'
+export const cinnabarRed = '#E53935'
+export const ecstasyOrange = '#F57F17'

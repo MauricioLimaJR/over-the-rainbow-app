@@ -1,26 +1,51 @@
-// import React from 'react'
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import styled from 'styled-components'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { ThemeProvider, createMuiTheme } from '@material-ui/core'
+// Custom Components
+// import About from './pages/about/index'
+import BodyContent from './pages/components/BodyContent'
+import Footer from './pages/components/Footer'
+// import Gameboard from './pages/gameboard/index'
+// import Games from './pages/games/index'
+import Header from './pages/components/Header'
+// import Landing from './pages/landing/index'
+// import RankingTable from './pages/ranking/index'
+import Theme from './core/theme'
+// Others
+import * as colors from './constants/colors'
+
+const StyledCanvas = styled.div`
+  background-color: ${colors.darkerWhite};
+  color: ${colors.pentaneryGray};
+  font-family: !important ${'Roboto, Regular, Helvetica'};
+  overflow: hidden;
+  text-align: center;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // REACT ROUTER DOM ROOT
+    <StyledCanvas className="App">
+      <ThemeProvider theme={createMuiTheme(Theme)}>
+        <BrowserRouter>
+          <Header />
+          <BodyContent className="App">oiiiiii
+            {/* <Switch>
+              <Route exact path='/' component={Landing} />
+              <Route exact path='/jogar' component={Gameboard} />
+              <Route exact path='/jogos' component={Games} />
+              <Route exact path='/ranking' component={RankingTable} />
+              <Route exact path='/sobre' component={About} />
+              <Route path='/' component={Landing} />
+            </Switch> */}
+          </BodyContent>
+
+          <Footer />
+        </BrowserRouter>
+      </ThemeProvider>
+    </StyledCanvas>
+  )
 }
 
 export default App;
