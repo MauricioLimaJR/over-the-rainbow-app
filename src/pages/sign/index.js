@@ -15,7 +15,6 @@ const MainGrid = styled(Grid)`
   padding: 1rem 1rem;
   max-width: 450px;
   background-color: ${colors.white};
-  transition: 0.3s;
   box-shadow: 0 8px 16px 0 ${colors.kimberlyGray};
 `
 

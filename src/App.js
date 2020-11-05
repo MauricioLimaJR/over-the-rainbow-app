@@ -6,7 +6,7 @@ import { ThemeProvider, createMuiTheme } from '@material-ui/core'
 import BodyContent from './pages/components/BodyContent'
 import Footer from './pages/components/Footer'
 import Header from './pages/components/Header'
-// import Dashboard from './pages/dashboard/index'
+import MapView from './pages/MapView/index'
 import Sign from './pages/sign/index'
 import NoMatchPage from './pages/components/NoMatchPage'
 import Theme from './core/theme'
@@ -31,7 +31,7 @@ function App() {
           <BodyContent className="App">
             <Switch>
               <Route exact path='/' component={Sign} />
-              {/* <Route exact path='/dashboard' component={Dashboard} /> */}
+              <Route exact path='/dashboard' component={MapView} />
               <Route path='/' component={NoMatchPage} />
             </Switch>
           </BodyContent>
