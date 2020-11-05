@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { Grid } from '@material-ui/core'
 // Custom Components
 import SignInForm from './components/SignInForm'
+import SignUpForm from './components/SignUpForm'
 import withNoAuth from '../components/hocs/withNoAuth'
 // Others
 import * as colors from '../../constants/colors'
@@ -33,7 +34,10 @@ const Sign = ({}) => {
             action={btnTexts.signin}
             handle={() => setLogin(false)}
           />
-        : <SignInForm action={btnTexts.signin}/>
+        : <SignUpForm
+            action={btnTexts.signin}
+            handle={() => setLogin(true)}
+          />
     }
     </MainGrid>
   )

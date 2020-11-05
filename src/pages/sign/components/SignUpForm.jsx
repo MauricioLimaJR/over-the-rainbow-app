@@ -10,6 +10,8 @@ import instaceCreator from '../../../core/instanceCreator'
 import Logo from '../../../static/images/otb.png'
 
 const SignInForm = ({ action, handle }) => {
+  const [firsname, setFirstname] = React.useState('')
+  const [lastname, setLastname] = React.useState('')
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [error, setError] = React.useState(null)
@@ -19,7 +21,7 @@ const SignInForm = ({ action, handle }) => {
   const handleSubmit = async event => {
     event.preventDefault()
 
-    if (!email || !password) {
+    if (!firsname || !lastname || !email || !password) {
       setError('Preencha todos os dados para se cadastrar!')
     } else {
       try {
@@ -35,12 +37,28 @@ const SignInForm = ({ action, handle }) => {
 
   return(
     <Form onSubmit={handleSubmit}>
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         <Grid item xs={12}>
           <img src={Logo} alt="Over The Rainbow logo" />
         </Grid>
 
         {error && <p>{error}</p>}
+  
+        <Grid item xs={12}>
+          <input
+            type="firtname"
+            placeholder="Nome"
+            onChange={e => setFirstname(e.target.value)}
+          />
+        </Grid>
+        
+        <Grid item xs={12}>
+          <input
+            type="lastname"
+            placeholder="Sobrenome"
+            onChange={e => setEmail(e.target.value)}
+          />
+        </Grid>
   
         <Grid item xs={12}>
           <input
@@ -64,7 +82,7 @@ const SignInForm = ({ action, handle }) => {
 
         <Grid item xs={12}>
           <a href='' onClick={e => e.preventDefault() || handle()}>
-            Cadastrar conta
+            Já tenho uma conta, Entrar.
           </a>
         </Grid>
       </Grid>
