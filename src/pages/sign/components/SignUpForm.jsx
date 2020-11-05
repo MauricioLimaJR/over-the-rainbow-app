@@ -1,34 +1,39 @@
 import React from 'react'
-import styled from 'styled-components'
+import { compose, bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 // Material-UI
-import { Button, Grid, TextField } from '@material-ui/core'
-// Custom
-import { Form, Container } from "./styles"
+import { Grid } from '@material-ui/core'
+// Custom components
+import { Form } from "./styles"
+import { operations as userOperations } from '../../../ducks/user'
 // Others
-// import * as colors from '../../constants/colors'
-import instaceCreator from '../../../core/instanceCreator'
 import Logo from '../../../static/images/otb.png'
 
-const SignInForm = ({ action, handle }) => {
-  const [firsname, setFirstname] = React.useState('')
+const SignUpForm = ({
+  action,
+  handle,
+  onSubmit,
+  userActions
+}) => {
+  const [firstname, setFirstname] = React.useState('')
   const [lastname, setLastname] = React.useState('')
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [error, setError] = React.useState(null)
 
-  const api = instaceCreator()
-
   const handleSubmit = async event => {
     event.preventDefault()
 
-    if (!firsname || !lastname || !email || !password) {
+    if (!firstname || !lastname || !email || !password) {
       setError('Preencha todos os dados para se cadastrar!')
     } else {
       try {
         setError(null)
 
-        await api.post("/sessions", { email, password })
-        this.props.history.push("/")
+        const data = { firstname, lastname, email, password }
+        await userActions.registerUser(data)
+
+        onSubmit()
       } catch (err) {
         console.log(err)
       }
@@ -46,7 +51,7 @@ const SignInForm = ({ action, handle }) => {
   
         <Grid item xs={12}>
           <input
-            type="firtname"
+            type="firstname"
             placeholder="Nome"
             onChange={e => setFirstname(e.target.value)}
           />
@@ -56,7 +61,7 @@ const SignInForm = ({ action, handle }) => {
           <input
             type="lastname"
             placeholder="Sobrenome"
-            onChange={e => setEmail(e.target.value)}
+            onChange={e => setLastname(e.target.value)}
           />
         </Grid>
   
@@ -90,4 +95,10 @@ const SignInForm = ({ action, handle }) => {
   )
 }
 
-export default SignInForm
+const mapDispatchToProps = dispatch => ({
+  userActions: bindActionCreators(userOperations, dispatch),
+})
+
+export default compose(
+  connect(null, mapDispatchToProps)
+)(SignUpForm)

@@ -5,8 +5,8 @@ const publicRuntimeConfig = process.env
 
 const APP_URL =
   publicRuntimeConfig.NODE_ENV === 'development'
-    ? publicRuntimeConfig.NEXT_PUBLIC_DEV_BASE_URL
-    : publicRuntimeConfig.NEXT_PUBLIC_PROD_BASE_URL
+    ? publicRuntimeConfig.REACT_APP_DEV_BASE_URL
+    : publicRuntimeConfig.REACT_APP_PROD_BASE_URL
 
 /**
  * Create a new Axios instance
@@ -24,11 +24,18 @@ const instanceCreator = (baseUrl = null) => {
     return config
   }
 
+  const requestInterceptorError = (config) => {
+    console.log('requestInterceptorError')
+    console.log(config)
+    return config
+  }
+
   // Create instance and set up interceptors
   const instance = axios.create({ baseURL: baseUrl || APP_URL })
 
   instance.interceptors.request.use(
     requestInterceptorSuccess,
+    requestInterceptorError,
   )
 
   return instance

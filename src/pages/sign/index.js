@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-// import { compose } from 'redux'
+import { useHistory } from "react-router-dom"
 // Material-UI
 import { Grid } from '@material-ui/core'
 // Custom Components
@@ -19,12 +19,15 @@ const MainGrid = styled(Grid)`
   box-shadow: 0 8px 16px 0 ${colors.kimberlyGray};
 `
 
-const Sign = ({}) => {
+const Sign = () => {
   const [login, setLogin] = React.useState(true)
   const btnTexts = {
     signup: 'Criar Conta',
     signin: 'Entrar'
   }
+
+  const history = useHistory()
+  const onSubmit = () => history.push('/dashboard')
 
   return (
     <MainGrid container justify='center' direction='row'>
@@ -33,10 +36,12 @@ const Sign = ({}) => {
         ? <SignInForm
             action={btnTexts.signin}
             handle={() => setLogin(false)}
+            onSubmit={onSubmit}
           />
         : <SignUpForm
             action={btnTexts.signin}
             handle={() => setLogin(true)}
+            onSubmit={onSubmit}
           />
     }
     </MainGrid>

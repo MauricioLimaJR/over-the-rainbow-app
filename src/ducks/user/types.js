@@ -1,0 +1,5 @@
+export const LOGIN = 'LOGIN'
+export const SET_ACCESS_TOKEN = 'SET_ACCESS_TOKEN'
+
+export const START_LOADING_USER = 'START_LOADING_USER'
+export const STOP_LOADING_USER = 'STOP_LOADING_USER'

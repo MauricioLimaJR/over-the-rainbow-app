@@ -1,20 +1,23 @@
 import React from 'react'
-import styled from 'styled-components'
+import { compose, bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 // Material-UI
-import { Button, Grid, TextField } from '@material-ui/core'
-// Custom
-import { Form, Container } from "./styles"
+import { Grid } from '@material-ui/core'
+// Custom components
+import { Form } from "./styles"
+import { operations as userOperations } from '../../../ducks/user'
 // Others
-// import * as colors from '../../constants/colors'
-import instaceCreator from '../../../core/instanceCreator'
 import Logo from '../../../static/images/otb.png'
 
-const SignInForm = ({ action, handle }) => {
+const SignInForm = ({
+  action,
+  handle,
+  onSubmit,
+  userActions
+}) => {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [error, setError] = React.useState(null)
-
-  const api = instaceCreator()
 
   const handleSubmit = async event => {
     event.preventDefault()
@@ -25,8 +28,9 @@ const SignInForm = ({ action, handle }) => {
       try {
         setError(null)
 
-        await api.post("/sessions", { email, password })
-        this.props.history.push("/")
+        const response = await userActions.login(email, password)
+
+        onSubmit()
       } catch (err) {
         console.log(err)
       }
@@ -72,4 +76,10 @@ const SignInForm = ({ action, handle }) => {
   )
 }
 
-export default SignInForm
+const mapDispatchToProps = dispatch => ({
+  userActions: bindActionCreators(userOperations, dispatch),
+})
+
+export default compose(
+  connect(null, mapDispatchToProps)
+)(SignInForm)
