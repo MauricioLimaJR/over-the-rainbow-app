@@ -97,6 +97,8 @@ class Map extends React.Component{
         lng: lngValue
       },
     })
+
+    this.props.handlePositionChange(this.props.mapPosition)
   };
 
   /**
@@ -153,6 +155,11 @@ class Map extends React.Component{
             name={'Dolores park'}
             draggable={true}
             onDragEnd={ this.onMarkerDragEnd }
+            onClick={() => this.props.handleRegiterPlace({
+              address: this.state.address,
+              latitude: this.state.markerPosition.lat,
+              longitude: this.state.markerPosition.lng
+            })}
             position={{
               lat: this.state.markerPosition.lat,
               lng: this.state.markerPosition.lng
